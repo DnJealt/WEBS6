@@ -1,0 +1,37 @@
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>By</th>
+                <th>Template</th>
+                <th>State</th>
+                <th>View Players</th>
+              </tr>
+            </thead>
+            <tbody>
+                
+                <tr ng-repeat="game in gc.GameFactory.myGames">
+                    <td>{{game.createdBy.name}}</td>
+                    <td>{{game.gameTemplate.id}}</td>
+                    <td>{{game.state}}</td>
+                    <td>
+                        
+                        <button class="btn btn-success btn-block" ng-click="gc.startGame(game)" ng-show="game.state == 'open' && game.createdBy._id == gc.AuthService.getUser()">Start game</button>
+                        <button class="btn btn-success btn-block" ng-click="gc.playGame(game)" ui-sref="games.my.board({id: game.id})" ng-show="game.state == 'playing'">Play game</button>
+                        <button class="btn-btn-primary btn-block" ng-show="game.state == 'finished'">View game</button>
+                        
+                    </td>
+                    <td style="width:300px;">
+                        <button class="btn btn-primary btn-block" ng-show="shouldShow" ng-click="shouldShow = !shouldShow">Hide</button>
+                        <button class="btn btn-primary btn-block" ng-show="!shouldShow" ng-click="shouldShow = !shouldShow">Show</button>
+                        <div style="text-align:center;"ng-show="shouldShow" ng-repeat="player in game.players">{{ player.name }}</div>
+                    </td> 
+                </tr>
+                
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div ui-view></div>

@@ -1,0 +1,533 @@
+.successMsg {
+  width: 100%;
+  background-color: #00cc00;
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: Verdana;
+  font-weight: bold;
+  color: white;
+  display: none;
+}
+
+.selected {
+  background-color: rgba(200, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.grid {
+  background-color: lightgrey;
+  position: absolute;
+  width: 100%;
+}
+
+.x-1 {
+  position: absolute;
+  left: 36.5px;
+}
+
+.x-2 {
+  position: absolute;
+  left: 73px;
+}
+
+.x-3 {
+  position: absolute;
+  left: 109.5px;
+}
+
+.x-4 {
+  position: absolute;
+  left: 146px;
+}
+
+.x-5 {
+  position: absolute;
+  left: 182.5px;
+}
+
+.x-6 {
+  position: absolute;
+  left: 219px;
+}
+
+.x-7 {
+  position: absolute;
+  left: 255.5px;
+}
+
+.x-8 {
+  position: absolute;
+  left: 292px;
+}
+
+.x-9 {
+  position: absolute;
+  left: 328.5px;
+}
+
+.x-10 {
+  position: absolute;
+  left: 365px;
+}
+
+.x-11 {
+  position: absolute;
+  left: 401.5px;
+}
+
+.x-12 {
+  position: absolute;
+  left: 438px;
+}
+
+.x-13 {
+  position: absolute;
+  left: 474.5px;
+}
+
+.x-14 {
+  position: absolute;
+  left: 511px;
+}
+
+.x-15 {
+  position: absolute;
+  left: 547.5px;
+}
+
+.x-16 {
+  position: absolute;
+  left: 584px;
+}
+
+.x-17 {
+  position: absolute;
+  left: 620.5px;
+}
+
+.x-18 {
+  position: absolute;
+  left: 657px;
+}
+
+.x-19 {
+  position: absolute;
+  left: 693.5px;
+}
+
+.x-20 {
+  position: absolute;
+  left: 730px;
+}
+
+.x-21 {
+  position: absolute;
+  left: 766.5px;
+}
+
+.x-22 {
+  position: absolute;
+  left: 803px;
+}
+
+.x-23 {
+  position: absolute;
+  left: 839.5px;
+}
+
+.x-24 {
+  position: absolute;
+  left: 876px;
+}
+
+.x-25 {
+  position: absolute;
+  left: 912.5px;
+}
+
+.x-26 {
+  position: absolute;
+  left: 949px;
+}
+
+.x-27 {
+  position: absolute;
+  left: 985.5px;
+}
+
+.x-28 {
+  position: absolute;
+  left: 1022px;
+}
+
+.x-29 {
+  position: absolute;
+  left: 1058.5px;
+}
+
+.x-30 {
+  position: absolute;
+  left: 1095px;
+}
+
+.y-1 {
+  top: 45.625px;
+}
+
+.y-2 {
+  top: 91.25px;
+}
+
+.y-3 {
+  top: 136.875px;
+}
+
+.y-4 {
+  top: 182.5px;
+}
+
+.y-5 {
+  top: 228.125px;
+}
+
+.y-6 {
+  top: 273.75px;
+}
+
+.y-7 {
+  top: 319.375px;
+}
+
+.y-8 {
+  top: 365px;
+}
+
+.y-9 {
+  top: 410.625px;
+}
+
+.y-10 {
+  top: 456.25px;
+}
+
+.y-11 {
+  top: 501.875px;
+}
+
+.y-12 {
+  top: 547.5px;
+}
+
+.y-13 {
+  top: 593.125px;
+}
+
+.y-14 {
+  top: 638.75px;
+}
+
+.y-15 {
+  top: 684.375px;
+}
+
+.y-16 {
+  top: 730px;
+}
+
+.y-17 {
+  top: 775.625px;
+}
+
+.y-18 {
+  top: 821.25px;
+}
+
+.y-19 {
+  top: 866.875px;
+}
+
+.y-20 {
+  top: 912.5px;
+}
+
+.y-21 {
+  top: 958.125px;
+}
+
+.y-22 {
+  top: 1003.75px;
+}
+
+.y-23 {
+  top: 1049.375px;
+}
+
+.y-24 {
+  top: 1095px;
+}
+
+.y-25 {
+  top: 1140.625px;
+}
+
+.y-26 {
+  top: 1186.25px;
+}
+
+.y-27 {
+  top: 1231.875px;
+}
+
+.y-28 {
+  top: 1277.5px;
+}
+
+.y-29 {
+  top: 1323.125px;
+}
+
+.y-30 {
+  top: 1368.75px;
+}
+
+.z-0 {
+  z-index: 0;
+  margin-top: 0;
+  margin-left: 0;
+}
+
+.z-1 {
+  z-index: 1;
+  margin-top: -3;
+  margin-left: -3;
+}
+
+.z-2 {
+  z-index: 2;
+  margin-top: -6;
+  margin-left: -6;
+}
+
+.z-3 {
+  z-index: 3;
+  margin-top: -9;
+  margin-left: -9;
+}
+
+.z-4 {
+  z-index: 4;
+  margin-top: -12;
+  margin-left: -12;
+}
+
+.z-5 {
+  z-index: 5;
+  margin-top: -15;
+  margin-left: -15;
+}
+
+.z-6 {
+  z-index: 6;
+  margin-top: -18;
+  margin-left: -18;
+}
+
+.z-7 {
+  z-index: 7;
+  margin-top: -21;
+  margin-left: -21;
+}
+
+.z-8 {
+  z-index: 8;
+  margin-top: -24;
+  margin-left: -24;
+}
+
+.z-9 {
+  z-index: 9;
+  margin-top: -27;
+  margin-left: -27;
+}
+
+.z-10 {
+  z-index: 10;
+  margin-top: -30;
+  margin-left: -30;
+}
+
+.Character {
+  background-image: url("../img/sheet.png");
+  width: 73px;
+  height: 90px;
+}
+.Character.name-1 {
+  background-position: 0px 0px;
+}
+.Character.name-2 {
+  background-position: -73px 0px;
+}
+.Character.name-3 {
+  background-position: -146px 0px;
+}
+.Character.name-4 {
+  background-position: -219px 0px;
+}
+.Character.name-5 {
+  background-position: -292px 0px;
+}
+.Character.name-6 {
+  background-position: -365px 0px;
+}
+.Character.name-7 {
+  background-position: -438px 0px;
+}
+.Character.name-8 {
+  background-position: -511px 0px;
+}
+.Character.name-9 {
+  background-position: -584px 0px;
+}
+
+.Wind {
+  background-image: url("../img/sheet.png");
+  width: 73px;
+  height: 90px;
+}
+.Wind.name-North {
+  background-position: -657px 0px;
+}
+.Wind.name-East {
+  background-position: -730px 0px;
+}
+.Wind.name-South {
+  background-position: -803px 0px;
+}
+.Wind.name-West {
+  background-position: -876px 0px;
+}
+
+.Circle {
+  background-image: url("../img/sheet.png");
+  width: 73px;
+  height: 90px;
+}
+.Circle.name-1 {
+  background-position: 0px 90px;
+}
+.Circle.name-2 {
+  background-position: -73px 90px;
+}
+.Circle.name-3 {
+  background-position: -146px 90px;
+}
+.Circle.name-4 {
+  background-position: -219px 90px;
+}
+.Circle.name-5 {
+  background-position: -292px 90px;
+}
+.Circle.name-6 {
+  background-position: -365px 90px;
+}
+.Circle.name-7 {
+  background-position: -438px 90px;
+}
+.Circle.name-8 {
+  background-position: -511px 90px;
+}
+.Circle.name-9 {
+  background-position: -584px 90px;
+}
+
+.Bamboo {
+  background-image: url("../img/sheet.png");
+  width: 73px;
+  height: 90px;
+}
+.Bamboo.name-1 {
+  background-position: 0px 180px;
+}
+.Bamboo.name-2 {
+  background-position: -73px 180px;
+}
+.Bamboo.name-3 {
+  background-position: -146px 180px;
+}
+.Bamboo.name-4 {
+  background-position: -219px 180px;
+}
+.Bamboo.name-5 {
+  background-position: -292px 180px;
+}
+.Bamboo.name-6 {
+  background-position: -365px 180px;
+}
+.Bamboo.name-7 {
+  background-position: -438px 180px;
+}
+.Bamboo.name-8 {
+  background-position: -511px 180px;
+}
+.Bamboo.name-9 {
+  background-position: -584px 180px;
+}
+
+.Dragon {
+  background-image: url("../img/sheet.png");
+  width: 73px;
+  height: 90px;
+}
+.Dragon.name-Red {
+  background-position: -949px 180px;
+}
+.Dragon.name-White {
+  background-position: -949px 90px;
+}
+.Dragon.name-Green {
+  background-position: -949px 0px;
+}
+
+.Flower {
+  background-image: url("../img/sheet.png");
+  width: 73px;
+  height: 90px;
+}
+.Flower.name-Plum {
+  background-position: -730px 90px;
+}
+.Flower.name-Chrysantememum {
+  background-position: -876px 90px;
+}
+.Flower.name-Orchid {
+  background-position: -803px 90px;
+}
+.Flower.name-Bamboo {
+  background-position: -657px 90px;
+}
+
+.Season {
+  background-image: url("../img/sheet.png");
+  width: 73px;
+  height: 90px;
+}
+.Season.name-Spring {
+  background-position: -657px 180px;
+}
+.Season.name-Summer {
+  background-position: -730px 180px;
+}
+.Season.name-Autumn {
+  background-position: -803px 180px;
+}
+.Season.name-Winter {
+  background-position: -876px 180px;
+}
+
+/*# sourceMappingURL=app.css.map */

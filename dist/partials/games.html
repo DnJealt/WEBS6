@@ -1,0 +1,29 @@
+
+<button class="btn btn-success btn-block" ng-click="createShow = !createShow">Create Game</button>
+
+<form id="creategame" ng-show="createShow">
+                Template:
+                <select form="creategame" ng-model="gc.selectedTemplate">
+                    <option ng-repeat="type in gc.gameTemplates" value="{{ type }}">{{type}}</option>
+                </select><br>
+                Minimum Players: <input type="number" min="2" max="30" ng-model="gc.minPlayers">
+                Maximum Players: <input type="number" min="4" max="32"ng-model="gc.maxPlayers"><br>
+                <p class="playermismatch">
+                    Minimum amount of players can not be greater than the maximum amount.
+                </p>
+                <p class="templatemismatch">
+                    Please select a game template.
+                </p>
+                <input type="submit" ng-click="gc.createGame()" value="Create game!">
+                
+            </form>
+
+
+<ul class="nav nav-tabs">
+  <li><a data-toggle="tab" ui-sref="games.all">Open games</a></li>
+  <li><a data-toggle="tab" ui-sref="games.my">My games</a></li>
+</ul>
+
+
+
+<div ui-view></div>

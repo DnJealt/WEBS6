@@ -1,0 +1,32 @@
+{
+  "name": "webs6",
+  "version": "1.0.0",
+  "description": "Webs6 Angular",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Bram van der Zee",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.5",
+    "angular-socket-io": "^0.7.0",
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-http-server": "^2.0.0",
+    "karma": "^0.13.22",
+    "socket.io": "^1.4.6"
+  }
+}
