@@ -1,0 +1,88 @@
+$icons: url('../img/sheet.png');
+
+@mixin template {
+    background-image: $icons;
+    width: ($icon-width);
+    height: ($icon-height);
+}
+
+.Character {    
+    @include template;
+    
+     &.name-1 { background-position: -($icon-width * 0) ($icon-height * 0); }
+     &.name-2 { background-position: -($icon-width * 1) ($icon-height * 0); }
+     &.name-3 { background-position: -($icon-width * 2) ($icon-height * 0); }
+     &.name-4 { background-position: -($icon-width * 3) ($icon-height * 0); }
+     &.name-5 { background-position: -($icon-width * 4) ($icon-height * 0); }
+     &.name-6 { background-position: -($icon-width * 5) ($icon-height * 0); }
+     &.name-7 { background-position: -($icon-width * 6) ($icon-height * 0); }
+     &.name-8 { background-position: -($icon-width * 7) ($icon-height * 0); }
+     &.name-9 { background-position: -($icon-width * 8) ($icon-height * 0); }
+}
+
+.Wind {
+    @include template;
+    
+    &.name-North { background-position: -($icon-width * 9) ($icon-height * 0); }
+    &.name-East { background-position: -($icon-width * 10) ($icon-height * 0); }
+    &.name-South { background-position: -($icon-width * 11) ($icon-height * 0); }
+    &.name-West { background-position: -($icon-width * 12) ($icon-height * 0); }
+}
+
+.Circle {
+    @include template;
+    
+     &.name-1 { background-position: -($icon-width * 0) ($icon-height * 1); }
+     &.name-2 { background-position: -($icon-width * 1) ($icon-height * 1); }
+     &.name-3 { background-position: -($icon-width * 2) ($icon-height * 1); }
+     &.name-4 { background-position: -($icon-width * 3) ($icon-height * 1); }
+     &.name-5 { background-position: -($icon-width * 4) ($icon-height * 1); }
+     &.name-6 { background-position: -($icon-width * 5) ($icon-height * 1); }
+     &.name-7 { background-position: -($icon-width * 6) ($icon-height * 1); }
+     &.name-8 { background-position: -($icon-width * 7) ($icon-height * 1); }
+     &.name-9 { background-position: -($icon-width * 8) ($icon-height * 1); }  
+}
+
+.Bamboo {
+    @include template;
+
+     &.name-1 { background-position: -($icon-width * 0) ($icon-height * 2); }
+     &.name-2 { background-position: -($icon-width * 1) ($icon-height * 2); }
+     &.name-3 { background-position: -($icon-width * 2) ($icon-height * 2); }
+     &.name-4 { background-position: -($icon-width * 3) ($icon-height * 2); }
+     &.name-5 { background-position: -($icon-width * 4) ($icon-height * 2); }
+     &.name-6 { background-position: -($icon-width * 5) ($icon-height * 2); }
+     &.name-7 { background-position: -($icon-width * 6) ($icon-height * 2); }
+     &.name-8 { background-position: -($icon-width * 7) ($icon-height * 2); }
+     &.name-9 { background-position: -($icon-width * 8) ($icon-height * 2); }
+
+}
+
+.Dragon {
+    @include template;
+    
+    &.name-Red { background-position: -($icon-width * 13) ($icon-height * 2); }
+    &.name-White { background-position: -($icon-width * 13) ($icon-height * 1); }
+    &.name-Green { background-position: -($icon-width * 13) ($icon-height * 0); }
+    
+}
+
+.Flower {
+    @include template;
+    
+    &.name-Plum { background-position: -($icon-width * 10) ($icon-height * 1); }
+    &.name-Chrysantememum { background-position: -($icon-width * 12) ($icon-height * 1); }
+    &.name-Orchid { background-position: -($icon-width * 11) ($icon-height * 1); }
+    &.name-Bamboo { background-position: -($icon-width * 9) ($icon-height * 1); }
+    
+}
+
+.Season {
+    @include template;
+    
+    &.name-Spring { background-position: -($icon-width * 9) ($icon-height * 2); }
+    &.name-Summer { background-position: -($icon-width * 10) ($icon-height * 2); }
+    &.name-Autumn { background-position: -($icon-width * 11) ($icon-height * 2); }
+    &.name-Winter { background-position: -($icon-width * 12) ($icon-height * 2); }
+    
+}
