@@ -18,7 +18,8 @@ module.exports = function () {
             }
             
         }
-                
+
+        if(index)        
         factory.tileList.splice(index, 1);
         
     }

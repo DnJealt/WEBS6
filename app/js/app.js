@@ -65,6 +65,18 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             }
             
         })
+        .state('games.my.finished', {
+            url: "/finished/:id",
+            templateUrl: "partials/games.my.finished.html",
+            controller: "MatchController",
+            controllerAs: "mc",
+            resolve: {
+                gameId: function ($q, $stateParams) {
+                    return $stateParams.id;
+                }
+            }
+            
+        })
         .state('login', {
             url: "/login",
             template: 'Logging in',

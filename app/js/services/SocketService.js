@@ -1,8 +1,6 @@
 module.exports = function(){
     var self = this;
-    
-    self.io = ....
-    
+        
     self.listenToGame = function(){
         
     }

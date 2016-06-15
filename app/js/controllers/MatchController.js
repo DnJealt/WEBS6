@@ -7,13 +7,23 @@ module.exports = function ($scope, $http, MatchFactory, gameId) {
     self.socket = io('http://mahjongmayhem.herokuapp.com?gameId=' + gameId);
 
     self.socket.on('match', function (matchedArray) {
-        
+
+        console.log(matchedArray);
+
         matchedArray.forEach(function(match) {
-           
+
            self.matchFactory.removeTile(match._id);
-            
+
         });
+
+        $scope.$apply();
         
+    });
+
+    self.socket.on('end', function() {
+
+        console.log("game ended");
+
     });
 
     self.canTileClick = function (tile) {
@@ -133,15 +143,23 @@ module.exports = function ($scope, $http, MatchFactory, gameId) {
         } else {
 
             $http.post('http://mahjongmayhem.herokuapp.com/Games/' + gameId + '/Tiles/matches',
-                {
-                    tile1Id: tileOne._id,
-                    tile2Id: tileTwo._id
-                }).success(function (response) {
+            {
+                tile1Id: tileOne._id,
+                tile2Id: tileTwo._id
+            }).success(function (response) {
                     
-                    self.matchFactory.selectedFirst = null;
-                    self.matchFactory.selectedSecond = null;
+                self.matchFactory.selectedFirst = null;
+                self.matchFactory.selectedSecond = null;
                     
-                });
+            }).error(function(response) {
+
+                self.matchFactory.selectedFirst = null;
+                self.matchFactory.selectedSecond = null;
+        
+            });
+
+            self.matchFactory.removeTile(tileOne._id);
+            self.matchFactory.removeTile(tileTwo._id);
 
         }
 
