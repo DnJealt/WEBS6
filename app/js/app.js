@@ -57,25 +57,13 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: "/board/:id",
             templateUrl: "partials/games.my.board.html",
             controller: "MatchController",
-            controllerAs: "mc",
-            resolve: {
-                gameId: function ($q, $stateParams) {
-                    return $stateParams.id;
-                }
-            }
-            
+            controllerAs: "mc"            
         })
         .state('games.my.finished', {
             url: "/finished/:id",
             templateUrl: "partials/games.my.finished.html",
             controller: "MatchController",
-            controllerAs: "mc",
-            resolve: {
-                gameId: function ($q, $stateParams) {
-                    return $stateParams.id;
-                }
-            }
-            
+            controllerAs: "mc"
         })
         .state('login', {
             url: "/login",
@@ -83,6 +71,24 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             controller: 'LoginController'
         });
 
+});
+
+app.filter('orderObjectBy', function(){
+ return function(input, attribute) {
+    if (!angular.isObject(input)) return input;
+
+    var array = [];
+    for(var objectKey in input) {
+        array.push(input[objectKey]);
+    }
+
+    array.sort(function(a, b){
+        a = parseInt(a[attribute]);
+        b = parseInt(b[attribute]);
+        return a - b;
+    });
+    return array;
+ }
 });
 
 var gameController = require('./controllers/GameController');

@@ -7,6 +7,7 @@
                 <th>Template</th>
                 <th>State</th>
                 <th>View Players</th>
+                <th>Statistics</th>
               </tr>
             </thead>
             <tbody>
@@ -23,9 +24,10 @@
                         
                     </td>
                     <td style="width:300px;">
-                        <button class="btn btn-primary btn-block" ng-show="shouldShow" ng-click="shouldShow = !shouldShow">Hide</button>
-                        <button class="btn btn-primary btn-block" ng-show="!shouldShow" ng-click="shouldShow = !shouldShow">Show</button>
-                        <div style="text-align:center;"ng-show="shouldShow" ng-repeat="player in game.players">{{ player.name }}</div>
+                        <button class="btn btn-primary btn-block" ng-show="shouldShow" ng-click="shouldShow = !shouldShow">Hide stats</button>
+                        <button class="btn btn-primary btn-block" ng-show="!shouldShow" ng-click="shouldShow = !shouldShow">Show stats</button>
+                        <div style="text-align:center;" ng-show="shouldShow" ng-repeat="player in game.players">{{ player.name }}</div>
+                        <button class="btn btn-danger btn-block" ng-click="gc.deleteGame(game)" ng-show="shouldShow && game.state != 'playing' && game.createdBy._id == gc.AuthService.getUser()">Delete</button>
                     </td> 
                 </tr>
                 

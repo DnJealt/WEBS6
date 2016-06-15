@@ -1,30 +1,43 @@
-module.exports = function ($scope, $http, MatchFactory, gameId) {
+module.exports = function ($scope, $http, MatchFactory, $stateParams) {
 
     var self = this;
 
     self.matchFactory = MatchFactory;
-    self.message;
-    self.socket = io('http://mahjongmayhem.herokuapp.com?gameId=' + gameId);
+    self.socket;
 
-    self.socket.on('match', function (matchedArray) {
+    if($stateParams.id) {
+        self.matchFactory.getMatch($stateParams.id, function(id) {
+            self.socket = io('http://mahjongmayhem.herokuapp.com?gameId=' +id);
+        });
+    }
 
-        console.log(matchedArray);
+    
 
-        matchedArray.forEach(function(match) {
+    
 
-           self.matchFactory.removeTile(match._id);
+    if(self.socket) {
+
+        self.socket.on('match', function (matchedArray) {
+
+            matchedArray.forEach(function(match) {
+
+            self.matchFactory.removeTile(match._id);
+
+            });
+
+            $scope.$apply();
+            
+        });
+
+        self.socket.on('end', function() {
+
+            alert("The game has ended!");
 
         });
 
-        $scope.$apply();
-        
-    });
+    }
 
-    self.socket.on('end', function() {
-
-        console.log("game ended");
-
-    });
+    
 
     self.canTileClick = function (tile) {
 

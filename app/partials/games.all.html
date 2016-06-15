@@ -12,7 +12,7 @@
             </thead>
             <tbody>
                 
-                <tr ng-repeat="game in gc.GameFactory.allGames" ng-if="game.state == 'open'">
+                <tr ng-repeat="game in gc.GameFactory.allGames" ng-if="game.state == 'open' && game.players.length != game.maxPlayers && game.createdBy._id != gc.AuthService.getUser() && game.players.indexOf(gc.AuthService.getUser()) == '-1'">
                     <td>{{game.createdBy.name}}</td>
                     <td>{{game.gameTemplate.id}}</td>
                     <td>{{game.state}}</td>
@@ -20,7 +20,7 @@
                     <td style="width:300px;">
                         <button class="btn btn-primary btn-block" ng-show="shouldShow" ng-click="shouldShow = !shouldShow">Hide</button>
                         <button class="btn btn-primary btn-block" ng-show="!shouldShow" ng-click="shouldShow = !shouldShow">Show</button>
-                        <div style="text-align:center;"ng-show="shouldShow" ng-repeat="player in game.players">{{ player.name }}</div>
+                        <div style="text-align:center;" ng-show="shouldShow" ng-repeat="player in game.players">{{ player.name }}</div>
                     </td> 
                 </tr>
                     

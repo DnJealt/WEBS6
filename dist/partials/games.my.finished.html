@@ -1,2 +1,5 @@
 
 <div class="successMsg" ng-show="message != null">{{mc.message}}</div>
+
+<b>Scores:</b>
+<div ng-repeat="player in mc.matchFactory.game.players | orderObjectBy: 'numberOfMatches':true"> {{player.name}} - {{player.numberOfMatches}}</div>

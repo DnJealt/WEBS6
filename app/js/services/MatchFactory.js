@@ -1,11 +1,21 @@
-module.exports = function () {
+module.exports = function  ($http) {
 
     var factory = {};
 
+    factory.game;
     factory.tileList = {};
-    factory.gameId;
     factory.selectedFirst;
     factory.selectedSecond;
+
+    factory.getMatch = function(id, callback) {
+
+        $http.get("https://mahjongmayhem.herokuapp.com/Games/" + id)
+            .then(function (result) {
+                factory.game = result.data;
+                callback(factory.game._id);
+            });
+
+    }
     
     factory.removeTile = function(id) {
         
@@ -19,8 +29,10 @@ module.exports = function () {
             
         }
 
-        if(index)        
-        factory.tileList.splice(index, 1);
+        if(index) {
+            factory.tileList.splice(index, 1);     
+        }
+        
         
     }
     
