@@ -22,12 +22,6 @@ module.exports = function($scope, $http, GameFactory, AuthService, MatchFactory)
        return game.state == 'open' && game.players.length < game.maxPlayers && canJoin;
     }
 
-//      self.gameJoinable = function(game) {
-
-// game.state == 'open' && game.players.length != game.maxPlayers && game.createdBy._id != gc.AuthService.getUser() && game.players.indexOf(gc.AuthService.getUser()) == '-1'
-
-//      }
-
     self.refreshGames = function() {
 
         GameFactory.getAllGames(function(){});
@@ -39,6 +33,7 @@ module.exports = function($scope, $http, GameFactory, AuthService, MatchFactory)
         
         $http.post("https://mahjongmayhem.herokuapp.com/Games/" + game.id + "/Players")
             .then(function (result) {
+                self.refreshGames();
             });        
     }
     
@@ -74,23 +69,15 @@ module.exports = function($scope, $http, GameFactory, AuthService, MatchFactory)
        
     self.playGame = function(game) {
         
-         $http.get("https://mahjongmayhem.herokuapp.com/Games/" + game.id + "/Tiles?matched=false")
-            .then(function (result) {
-                  var x = 0; 
-                  var y = 0;
-                result.data.forEach(function(tile){
-                                                          
-                    if(tile.xPos > x) {
-                        x = tile.xPos;
-                    }
-                    if(tile.yPos > y){
-                        y = tile.yPos
-                    }
-                });
-                                
-                self.matchFactory.tileList = result.data;
-                self.matchFactory.gameId = game.id;
-            });
+        self.matchFactory.tileList = null;
+        self.matchFactory.gameId = null;
+
+        if(game.state == 'playing') {
+            self.matchFactory.initializeMatch(game);
+            console.log("test");
+        }
+
+         
         
     }
 

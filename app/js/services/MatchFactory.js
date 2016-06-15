@@ -16,6 +16,14 @@ module.exports = function  ($http) {
             });
 
     }
+
+    factory.initializeMatch = function(game) {
+        $http.get("https://mahjongmayhem.herokuapp.com/Games/" + game._id + "/Tiles?matched=false")
+            .then(function (result) {   
+                factory.tileList = result.data;
+            });
+    };
+
     
     factory.removeTile = function(id) {
         

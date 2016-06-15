@@ -19,7 +19,7 @@
                     <td>
                         
                         <button class="btn btn-success btn-block" ng-click="gc.startGame(game)" ng-show="game.state == 'open' && game.createdBy._id == gc.AuthService.getUser()">Start game</button>
-                        <button class="btn btn-success btn-block" ng-click="gc.playGame(game)" ui-sref="games.my.board({id: game.id})" ng-show="game.state == 'playing'">Play game</button>
+                        <button class="btn btn-success btn-block" ng-click="gc.playGame(game)" ui-sref="games.my.board({id: game.id})" ng-show="game.state == 'playing' || (game.state == 'open' && game.createdBy._id != gc.AuthService.getUser())">Play game</button>
                         <button class="btn btn-primary btn-block" ng-click="gc.showGame(game)" ui-sref="games.my.finished({id: game.id})" ng-show="game.state == 'finished'">View game</button>
                         
                     </td>

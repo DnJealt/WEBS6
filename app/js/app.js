@@ -99,7 +99,9 @@ var matchController = require('./controllers/MatchController');
 var gameFactory = require('./services/GameFactory');
 var matchFactory = require('./services/MatchFactory');
 var authService = require('./services/AuthService');
+var socketService = require('./services/SocketService');
 
+app.service('SocketService', socketService);
 app.service('AuthService', authService);
 app.factory('GameFactory', gameFactory);
 app.factory('MatchFactory', matchFactory);
