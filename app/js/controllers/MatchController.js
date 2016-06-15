@@ -1,23 +1,21 @@
-module.exports = function ($scope, $http, MatchFactory, $stateParams) {
+module.exports = function ($scope, $http, MatchFactory, SocketService, $stateParams) {
 
     var self = this;
 
     self.matchFactory = MatchFactory;
-    self.socket;
+    self.socket = SocketService;
 
     if($stateParams.id) {
         self.matchFactory.getMatch($stateParams.id, function(id) {
-            self.socket = io('http://mahjongmayhem.herokuapp.com?gameId=' +id);
+            self.socket.listen(id);
+            self.socket = 
+            self.bindSocket();
         });
     }
 
-    
+    self.bindSocket = function() {
 
-    
-
-    if(self.socket) {
-
-        self.socket.on('match', function (matchedArray) {
+        self.socket.onMatch(function (matchedArray) {
 
             matchedArray.forEach(function(match) {
 
@@ -29,14 +27,20 @@ module.exports = function ($scope, $http, MatchFactory, $stateParams) {
             
         });
 
-        self.socket.on('end', function() {
+        self.socket.onEnd(function() {
 
             alert("The game has ended!");
 
         });
 
-    }
+        self.socket.onStart(function() {
+        
+            self.matchFactory.initializeMatch(self.matchFactory.game);
 
+        });
+
+
+    }
     
 
     self.canTileClick = function (tile) {
@@ -148,7 +152,7 @@ module.exports = function ($scope, $http, MatchFactory, $stateParams) {
 
         } else {
 
-            $http.post('http://mahjongmayhem.herokuapp.com/Games/' + gameId + '/Tiles/matches',
+            $http.post('http://mahjongmayhem.herokuapp.com/Games/' + self.matchFactory.game._id + '/Tiles/matches',
             {
                 tile1Id: tileOne._id,
                 tile2Id: tileTwo._id
