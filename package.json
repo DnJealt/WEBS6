@@ -4,7 +4,8 @@
   "description": "Webs6 Angular",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "grunt",
+    "test": "karma start karma-config.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.5.3",
+    "angular-mocks": "^1.5.5",
     "angular-route": "^1.5.5",
     "angular-socket-io": "^0.7.0",
     "angular-ui-router": "^0.3.1",
@@ -28,6 +30,17 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-http-server": "^2.0.0",
     "karma": "^0.13.22",
-    "socket.io": "^1.4.6"
+    "socket.io": "^1.4.6",
+    "browserify-istanbul": "^2.0.0",
+    "browserify-shim": "^3.8.12",
+    "grunt-karma": "^1.0.0",
+    "karma-browserify": "^5.0.5",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.0.0",
+    "karma-mocha": "^1.0.1",
+    "karma-sinon": "^1.0.5",
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.4"
   }
 }

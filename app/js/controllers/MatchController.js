@@ -132,17 +132,10 @@ module.exports = function ($scope, $http, MatchFactory, SocketService, $statePar
                         } else {
                             self.match(false, null, null);
                         }
-
                     }
-
                 }
-
             }
-
         }
-
-
-
     }
 
     self.match = function (matched, tileOne, tileTwo) {
