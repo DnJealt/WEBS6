@@ -100,9 +100,11 @@ var gameFactory = require('./services/GameFactory');
 var matchFactory = require('./services/MatchFactory');
 var authService = require('./services/AuthService');
 var socketService = require('./services/SocketService');
+var httpService = require('./services/HttpService');
 
 app.service('SocketService', socketService);
 app.service('AuthService', authService);
+app.service('HttpService', httpService);
 app.factory('GameFactory', gameFactory);
 app.factory('MatchFactory', matchFactory);
 

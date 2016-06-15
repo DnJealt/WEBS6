@@ -1,12 +1,13 @@
-module.exports = function ($http, AuthService) {
+module.exports = function ($http, AuthService, HttpService) {
 
     var factory = {};
 
+    factory.http = HttpService;
     factory.allGames = {};
     factory.myGames = {};
 
     factory.getAllGames = function (callback) {
-        
+
         $http.get("https://mahjongmayhem.herokuapp.com/Games")
             .then(function (result) {
                 factory.allGames = result.data;
