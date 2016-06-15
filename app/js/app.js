@@ -102,13 +102,15 @@ var authService = require('./services/AuthService');
 var socketService = require('./services/SocketService');
 var httpService = require('./services/HttpService');
 
+var gameTableDirective = require('./directives/gameTable');
+
 app.service('SocketService', socketService);
 app.service('AuthService', authService);
 app.service('HttpService', httpService);
 app.factory('GameFactory', gameFactory);
 app.factory('MatchFactory', matchFactory);
 
-app.controller('GameController', gameController);
+app.controller('GameController', gameController).directive('gameTable', gameTableDirective);
 app.controller('LoginController', loginController);
 app.controller('MainController', mainController);
 app.controller('MatchController', matchController);

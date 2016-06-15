@@ -1,29 +1,30 @@
-describe('SocketController', function(){
+describe('SocketService', function(){
     
     var ListController;
-	var requestService;
+    var socketService;
+    var httpService;
 	var createNewController;
 	var httpBackend;
 	var scope;
+    var http;
 	
     beforeEach(function(){
         //Je angular mahjong app opvragen, ng-app='week1'
         module('Webs6');
         
-        inject(function($rootScope, $controller, $httpBackend, $injector){
+        inject(function($rootScope, $controller, $httpBackend, $injector, $http){
             // The scope for the controller
             scope = $rootScope.$new();
+            http = $http;
             // Get the service which will be injected
-            authService = $injector.get('AuthService');
+            socketService = $injector.get('SocketService');
+            httpService = $injector.get('HttpService');
+
             // For mocking the backend
             httpBackend = $httpBackend;
-            
-            // expect van currentUser werkt dus niet als ik de requestService stub.
-            authService.getUser = sinon.stub();
-            authService.getUser.returns('jlmtartw@student.avans.nl');
 
             // This is the controller we're going to test
-            ListController = $controller('ListController', { $scope: scope });
+            // ListController = $controller('ListController', { $scope: scope });
         });
     });
     
@@ -39,7 +40,35 @@ describe('SocketController', function(){
     }
 
 
+    // it('should subscribe to a game', function(done){
+    //     // Arrange
+    //     this.timeout(10000);
 
+    //     var didRecieveSocketMessage = false;
+    //     var gameId = '5761692044620011003ae5ee'; 
+
+    //     socketService.listen(gameId);              
+
+    //     // Act
+    //     httpService.get('http://mahjongmayhem.herokuapp.com/Games', function(result) {
+    //             socketService.onStart(function(){
+    //                 console.log('kaas');
+                    
+    //                 didRecieveSocketMessage = true;
+    //                 expect(didRecieveSocketMessage).to.equal(true);
+    //                 done();
+    //         });
+    //     });
+    //     // .then(function(result){
+    //     //     console.log('hoi' + result);         
+    //     // }, function(error){
+    //     //     console.log('error' + error);
+    //     //     done();
+    //     // });   
+
+    //     // Assert
+    //     // expect(didRecieveSocketMessage).to.equal(true);
+    // });
 
 
 

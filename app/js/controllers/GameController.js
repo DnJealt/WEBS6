@@ -73,6 +73,7 @@ module.exports = function($scope, $http, GameFactory, AuthService, MatchFactory)
         self.matchFactory.gameId = null;
 
         if(game.state == 'playing') {
+            console.log(self.matchFactory);
             self.matchFactory.initializeMatch(game);
             console.log("test");
         }

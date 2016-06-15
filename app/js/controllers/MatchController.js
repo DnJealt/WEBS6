@@ -46,6 +46,8 @@ module.exports = function ($scope, $http, MatchFactory, SocketService, $statePar
     
 
     self.canTileClick = function (tile) {
+        
+        console.log(tile);
 
         var mc = self.matchFactory;
         var canClick = true;
@@ -101,7 +103,6 @@ module.exports = function ($scope, $http, MatchFactory, SocketService, $statePar
     self.clickTile = function (tile) {
 
         if (self.canTileClick(tile)) {
-
             var tileOne = self.matchFactory.selectedFirst;
             var tileTwo = self.matchFactory.selectedSecond;
 
