@@ -1,20 +1,43 @@
-module.exports = function ($scope, $http, MatchFactory, gameId) {
+module.exports = function ($scope, $http, MatchFactory, $stateParams) {
 
     var self = this;
 
     self.matchFactory = MatchFactory;
-    self.message;
-    self.socket = io('http://mahjongmayhem.herokuapp.com?gameId=' + gameId);
+    self.socket;
 
-    self.socket.on('match', function (matchedArray) {
-        
-        matchedArray.forEach(function(match) {
-           
-           self.matchFactory.removeTile(match._id);
+    if($stateParams.id) {
+        self.matchFactory.getMatch($stateParams.id, function(id) {
+            self.socket = io('http://mahjongmayhem.herokuapp.com?gameId=' +id);
+        });
+    }
+
+    
+
+    
+
+    if(self.socket) {
+
+        self.socket.on('match', function (matchedArray) {
+
+            matchedArray.forEach(function(match) {
+
+            self.matchFactory.removeTile(match._id);
+
+            });
+
+            $scope.$apply();
             
         });
-        
-    });
+
+        self.socket.on('end', function() {
+
+            alert("The game has ended!");
+
+        });
+
+    }
+
+    
 
     self.canTileClick = function (tile) {
 
@@ -133,15 +156,23 @@ module.exports = function ($scope, $http, MatchFactory, gameId) {
         } else {
 
             $http.post('http://mahjongmayhem.herokuapp.com/Games/' + gameId + '/Tiles/matches',
-                {
-                    tile1Id: tileOne._id,
-                    tile2Id: tileTwo._id
-                }).success(function (response) {
+            {
+                tile1Id: tileOne._id,
+                tile2Id: tileTwo._id
+            }).success(function (response) {
                     
-                    self.matchFactory.selectedFirst = null;
-                    self.matchFactory.selectedSecond = null;
+                self.matchFactory.selectedFirst = null;
+                self.matchFactory.selectedSecond = null;
                     
-                });
+            }).error(function(response) {
+
+                self.matchFactory.selectedFirst = null;
+                self.matchFactory.selectedSecond = null;
+        
+            });
+
+            self.matchFactory.removeTile(tileOne._id);
+            self.matchFactory.removeTile(tileTwo._id);
 
         }
 

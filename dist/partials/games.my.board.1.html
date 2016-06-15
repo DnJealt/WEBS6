@@ -1,8 +1,6 @@
 
 <div class="successMsg" ng-show="message != null">{{mc.message}}</div>
 
-
-
 <div class="grid">
     <div ng-repeat="tile in mc.matchFactory.tileList">
         <div ng-click="mc.clickTile(tile)" class="{{tile.tile.suit}} name-{{tile.tile.name}} x-{{tile.xPos}} y-{{tile.yPos}} z-{{tile.zPos}}" style="z-index: {{tile.zPos}}">

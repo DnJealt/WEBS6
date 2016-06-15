@@ -10,6 +10,30 @@ module.exports = function($scope, $http, GameFactory, AuthService, MatchFactory)
      self.selectedTemplate;
      self.minPlayers = 2;
      self.maxPlayers = 4;     
+
+     self.gameJoinable = function(game){
+       var canJoin = true;
+        game.players.forEach(function(player){
+           if(player._id == self.AuthService.getUser()){
+               canJoin = false;
+           }
+       });
+    
+       return game.state == 'open' && game.players.length < game.maxPlayers && canJoin;
+    }
+
+//      self.gameJoinable = function(game) {
+
+// game.state == 'open' && game.players.length != game.maxPlayers && game.createdBy._id != gc.AuthService.getUser() && game.players.indexOf(gc.AuthService.getUser()) == '-1'
+
+//      }
+
+    self.refreshGames = function() {
+
+        GameFactory.getAllGames(function(){});
+        GameFactory.getMyGames(function(){});
+
+    }
     
     self.joinGame = function(game) {
         
@@ -26,9 +50,18 @@ module.exports = function($scope, $http, GameFactory, AuthService, MatchFactory)
             minPlayers: self.minPlayers,
             maxPlayers: self.maxPlayers            
         }).success(function(response){
-            GameFactory.getAllGames();
+            self.refreshGames();
         });
         
+    }
+
+    self.deleteGame = function(game) {
+
+        $http.delete("https://mahjongmayhem.herokuapp.com/Games/" + game._id)
+            .then(function (result) {
+                self.refreshGames();
+            });  
+
     }
     
     self.startGame = function(game) {
@@ -57,7 +90,6 @@ module.exports = function($scope, $http, GameFactory, AuthService, MatchFactory)
                                 
                 self.matchFactory.tileList = result.data;
                 self.matchFactory.gameId = game.id;
-                console.log('max x: ' + x + ' max y:' + y);
             });
         
     }
