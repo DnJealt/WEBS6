@@ -17,6 +17,8 @@ module.exports = function ($scope, $http, MatchFactory, SocketService, $statePar
 
         self.socket.onMatch(function (matchedArray) {
 
+            console.log(matchedArray);
+
             matchedArray.forEach(function(match) {
 
             self.matchFactory.removeTile(match._id);
@@ -157,7 +159,7 @@ module.exports = function ($scope, $http, MatchFactory, SocketService, $statePar
                 tile1Id: tileOne._id,
                 tile2Id: tileTwo._id
             }).success(function (response) {
-                    
+                console.log("posted");
                 self.matchFactory.selectedFirst = null;
                 self.matchFactory.selectedSecond = null;
                     

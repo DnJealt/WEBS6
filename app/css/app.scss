@@ -4,6 +4,21 @@ $maxX: 30;
 $maxY: 30;
 $maxZ: 10;
 
+body {
+    background-color: $background !important;
+    color: $textcolor !important;
+}
+
+.navbar {
+
+    background-color: $background-nav !important;
+
+}
+
+#navbar {
+    color: $textcolor-nav !important;
+}
+
 @mixin message($color) {
     
     width:100%;

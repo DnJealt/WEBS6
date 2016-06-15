@@ -44,7 +44,8 @@ module.exports = function(grunt) {
          style: 'expanded'
        },
        files: {
-         'dist/css/app.css': 'app/css/app.scss'
+         'dist/css/theme_1.css': 'app/css/theme_1.scss',
+         'dist/css/theme_2.css': 'app/css/theme_2.scss'
        }
      }
    },

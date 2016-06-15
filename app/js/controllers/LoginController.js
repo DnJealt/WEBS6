@@ -5,7 +5,8 @@ module.exports = function($scope, $rootScope, $location, $window) {
         $window.localStorage.setItem('token', $location.search().token);
         
         $location.$$search = {};
-        $location.path('/');
+        $location.path('/games');
+        $window.location.reload();
     }
     
     init();
