@@ -111,8 +111,11 @@ module.exports = function ($scope, $http, MatchFactory, SocketService, $statePar
                     self.matchFactory.selectedFirst = tile;
                     tileOne = tile;
                 } else {
-                    self.matchFactory.selectedSecond = tile;
-                    tileTwo = tile;
+                    if(tileOne != tile) {
+                        self.matchFactory.selectedSecond = tile;
+                        tileTwo = tile;
+                    }
+                    
                 }
 
                 self.setOverlay(tile);
@@ -196,8 +199,8 @@ module.exports = function ($scope, $http, MatchFactory, SocketService, $statePar
         var elements = document.getElementsByClassName("x-" + tile.xPos + " y-" + tile.yPos);
 
         for (var i = 0; i < elements.length; i++) {
-            if (elements.item(i).style['z-index'] == tile.zPos) {
-                elements.item(i).removeChild(elements.item(i).childNodes[0]);
+            while (elements.item(i).firstChild) {
+                elements.item(i).removeChild(elements.item(i).firstChild);
             }
         }
 
