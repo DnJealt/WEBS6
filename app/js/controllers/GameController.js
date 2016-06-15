@@ -11,6 +11,23 @@ module.exports = function($scope, $http, GameFactory, AuthService, MatchFactory)
      self.minPlayers = 2;
      self.maxPlayers = 4;     
 
+     self.gameJoinable = function(game){
+       var canJoin = true;
+        game.players.forEach(function(player){
+           if(player._id == self.AuthService.getUser()){
+               canJoin = false;
+           }
+       });
+    
+       return game.state == 'open' && game.players.length < game.maxPlayers && canJoin;
+    }
+
+//      self.gameJoinable = function(game) {
+
+// game.state == 'open' && game.players.length != game.maxPlayers && game.createdBy._id != gc.AuthService.getUser() && game.players.indexOf(gc.AuthService.getUser()) == '-1'
+
+//      }
+
     self.refreshGames = function() {
 
         GameFactory.getAllGames(function(){});
